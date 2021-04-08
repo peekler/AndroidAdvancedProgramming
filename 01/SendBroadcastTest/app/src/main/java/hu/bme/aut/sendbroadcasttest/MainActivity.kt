@@ -12,7 +12,9 @@ class MainActivity : AppCompatActivity() {
 
         val btnSend = findViewById<Button>(R.id.btnSend)
         btnSend.setOnClickListener {
-            sendBroadcast(Intent("hu.bme.aut.NOTIFY"))
+            var myIntent = Intent("hu.bme.aut.NOTIFY")
+            myIntent.putExtra("KEY_DATA","HELLO")
+            sendBroadcast(myIntent)
         }
     }
 }
