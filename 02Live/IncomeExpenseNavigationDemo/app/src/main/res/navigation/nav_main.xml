@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/nav_main"
+    app:startDestination="@id/fragmentPIN">
+
+    <fragment
+        android:id="@+id/fragmentPIN"
+        android:name="hu.bme.aut.incomeexpensenavigationdemo.FragmentPIN"
+        android:label="FragmentPIN" >
+        <action
+            android:id="@+id/action_fragmentPIN_to_fragmentChart"
+            app:popUpTo="@id/fragmentPIN"
+            app:popUpToInclusive="true"
+            app:destination="@id/fragmentChart" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentChart"
+        android:name="hu.bme.aut.incomeexpensenavigationdemo.FragmentChart"
+        android:label="FragmentChart" />
+</navigation>
