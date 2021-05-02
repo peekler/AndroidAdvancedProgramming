@@ -34,10 +34,14 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, MainLocationManage
 
     private lateinit var mainLocatoinManager: MainLocationManager
 
+    private lateinit var myRoute: PolylineOptions
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMapsBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+
 
         mainLocatoinManager = MainLocationManager(this, this)
 
@@ -59,6 +63,10 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, MainLocationManage
                 .position(LatLng(47.0, 19.0))
                 .icon(BitmapDescriptorFactory.fromResource(R.drawable.arrow))
         )
+
+        myRoute = PolylineOptions().add()
+        val polyline = mMap.addPolyline(myRoute)
+        polyline.color = Color.GREEN
 
 
         //initMap()
@@ -127,11 +135,15 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, MainLocationManage
         val polygon: Polygon = mMap.addPolygon(polyRect)
         polygon.fillColor = Color.argb(100, 0, 255, 0)
 
+
+
         val polyLineOpts = PolylineOptions().add(
             LatLng(34.0, 19.0),
             LatLng(34.0, 26.0),
             LatLng(38.0, 26.0)
         )
+
+
         val polyline = mMap.addPolyline(polyLineOpts)
         polyline.color = Color.GREEN
     }
@@ -214,10 +226,20 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, MainLocationManage
         }
     }
 
+    var polyLine: Polyline? = null
+
     override fun onNewLocation(location: Location) {
         val markerPosition = LatLng(location.latitude, location.longitude)
         markerCurrentPosition?.setPosition(markerPosition)
         //mMap.moveCamera(CameraUpdateFactory.newLatLng(markerPosition))
+
+        myRoute.add(markerPosition)
+        if (polyLine != null) {
+            polyLine?.remove()
+        }
+        val polyLine = mMap.addPolyline(myRoute)
+        polyLine?.color = Color.GREEN
+
 
         val cameraPosition = CameraPosition.Builder()
             .target(markerPosition)

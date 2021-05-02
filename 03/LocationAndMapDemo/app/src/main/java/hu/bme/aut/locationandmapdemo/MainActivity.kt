@@ -1,6 +1,7 @@
 package hu.bme.aut.locationandmapdemo
 
 import android.Manifest
+import android.content.Intent
 import android.content.IntentSender
 import android.content.pm.PackageManager
 import android.location.Address
@@ -8,6 +9,7 @@ import android.location.Geocoder
 import android.location.Location
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.TextView
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
@@ -52,6 +54,7 @@ class MainActivity : AppCompatActivity(), MainLocationManager.OnNewLocationAvail
         val client: SettingsClient = LocationServices.getSettingsClient(this)
         val task: Task<LocationSettingsResponse> = client.checkLocationSettings(builder.build())
 
+
         task.addOnSuccessListener { locationSettingsResponse ->
             Toast.makeText(
                 this,
@@ -77,8 +80,14 @@ class MainActivity : AppCompatActivity(), MainLocationManager.OnNewLocationAvail
                 }
             }
         }
+
     }
 
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        Toast.makeText(this, "OK - LOCATION $requestCode", Toast.LENGTH_LONG).show()
+
+        super.onActivityResult(requestCode, resultCode, data)
+    }
 
     fun requestNeededPermission() {
         if (ContextCompat.checkSelfPermission(
