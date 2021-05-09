@@ -9,9 +9,11 @@ import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.*
+import com.google.firebase.firestore.EventListener
 import hu.bme.aut.firebaseforumdemo.adapter.PostsAdapter
 import hu.bme.aut.firebaseforumdemo.data.Post
 import hu.bme.aut.firebaseforumdemo.databinding.ActivityForumBinding
+import java.util.*
 
 class ForumActivity : AppCompatActivity() {
 
@@ -46,6 +48,27 @@ class ForumActivity : AppCompatActivity() {
     }
 
     private fun initFirebaseQuery() {
+        /*FirebaseFirestore.getInstance().collection(CreatePostActivity.COLLECTION_POSTS)
+            .whereEqualTo("title", "demo")
+            .get()
+            .addOnSuccessListener { documents ->
+                for (document in documents) {
+                    val post = document.toObject(Post::class.java)
+                    postsAdapter.addPost(post, document.id)
+                }
+            }
+            .addOnFailureListener { exception ->
+                Toast.makeText(
+                    this@ForumActivity, "Error: ${exception.message}",
+                    Toast.LENGTH_LONG
+                ).show()
+            }*/
+
+        val query = FirebaseFirestore.getInstance().collection(CreatePostActivity.COLLECTION_POSTS)
+            .whereEqualTo("title", "demo")
+
+
+
         queryRef = FirebaseFirestore.getInstance().collection(CreatePostActivity.COLLECTION_POSTS)
 
         eventListener = object : EventListener<QuerySnapshot> {
