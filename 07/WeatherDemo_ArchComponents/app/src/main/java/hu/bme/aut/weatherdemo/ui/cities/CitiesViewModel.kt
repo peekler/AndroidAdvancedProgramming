@@ -1,4 +1,4 @@
-package hu.bme.aut.weatherdemo.viewmodel
+package hu.bme.aut.weatherdemo.ui.cities
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel

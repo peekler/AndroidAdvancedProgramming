@@ -1,21 +1,17 @@
-package hu.bme.aut.weatherdemo.view.cities
+package hu.bme.aut.weatherdemo.ui.cities
 
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.ViewModelProvider
 import com.afollestad.materialdialogs.MaterialDialog
 import com.afollestad.materialdialogs.input.getInputField
 import com.afollestad.materialdialogs.input.input
 import hu.bme.aut.weatherdemo.R
-import hu.bme.aut.weatherdemo.view.cities.adapter.CityAdapter
-import hu.bme.aut.weatherdemo.database.AppDatabase
+import hu.bme.aut.weatherdemo.ui.cities.adapter.CityAdapter
 import hu.bme.aut.weatherdemo.model.db.City
-import hu.bme.aut.weatherdemo.viewmodel.CitiesViewModel
 import kotlinx.android.synthetic.main.activity_scrolling.*
-import kotlin.concurrent.thread
 
-class MainActivity : AppCompatActivity() {
+class CitiesListActivity : AppCompatActivity() {
 
     lateinit var cityAdapter: CityAdapter
     private val citiesViewModel: CitiesViewModel by viewModels()

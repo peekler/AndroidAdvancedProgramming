@@ -13,7 +13,7 @@
         android:theme="@style/AppTheme">
 
         <activity
-            android:name=".view.cities.MainActivity"
+            android:name=".ui.cities.CitiesListActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -22,7 +22,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".view.weather.WeatherDetailsActivity"/>
+        <activity android:name=".ui.weather.WeatherDetailsActivity"/>
     </application>
 
 </manifest>

@@ -1,7 +1,10 @@
-apply plugin: 'com.android.application'
-apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
-apply plugin: 'kotlin-kapt'
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-android-extensions'
+    id 'kotlin-kapt'
+}
+
 
 Properties localProps = new Properties()
 if (project.rootProject.file('key.properties').canRead()) {
@@ -12,11 +15,11 @@ if (project.rootProject.file('key.properties').canRead()) {
 
 android {
     compileSdkVersion 30
-    buildToolsVersion "30.0.2"
+    buildToolsVersion "30.0.3"
 
     defaultConfig {
         applicationId "hu.bme.aut.weatherdemo"
-        minSdkVersion 17
+        minSdkVersion 21
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
@@ -48,27 +51,23 @@ android {
 }
 
 dependencies {
-    def moshi_version = '1.9.2'
-    def retrofit_version = '2.8.1'
-    def glide_version = '4.8.0'
-    def room_version = '2.2.6'
-    def archVersion = '2.2.0'
-    def coroutines = '1.3.4'
-
-    implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    implementation 'androidx.core:core-ktx:1.3.1'
+    implementation 'androidx.core:core-ktx:1.3.2'
     implementation 'androidx.appcompat:appcompat:1.2.0'
-    implementation 'com.google.android.material:material:1.2.0'
-    testImplementation 'junit:junit:4.12'
+    implementation 'com.google.android.material:material:1.3.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+    testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
-    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
 
     // Dialogs
     implementation 'com.afollestad.material-dialogs:input:3.3.0'
 
     // Networking
+    def logging_version = "4.3.1"
+    def retrofit_version = "2.9.0"
+    def glide_version = '4.12.0'
+    def moshi_version = '1.11.0'
     implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
     implementation "com.squareup.retrofit2:converter-moshi:$retrofit_version"
     implementation "com.squareup.moshi:moshi:$moshi_version"
@@ -77,19 +76,16 @@ dependencies {
     kapt "com.github.bumptech.glide:compiler:$glide_version"
 
     // Database
+    def room_version = '2.3.0'
     implementation "androidx.room:room-runtime:$room_version"
     implementation "androidx.room:room-ktx:$room_version"
     kapt "androidx.room:room-compiler:$room_version"
 
     // Arch components
+    def archVersion = '2.2.0'
+    def lifecycle_version = '2.3.1'
     implementation "androidx.lifecycle:lifecycle-extensions:$archVersion"
-    kapt "androidx.lifecycle:lifecycle-compiler:$archVersion"
+    implementation "androidx.lifecycle:lifecycle-common-java8:$lifecycle_version"
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$archVersion"
-    implementation "androidx.activity:activity-ktx:1.1.0"
-
-
-    // Coroutines
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    api "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines"
-    api "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines"
+    implementation "androidx.activity:activity-ktx:1.2.3"
 }

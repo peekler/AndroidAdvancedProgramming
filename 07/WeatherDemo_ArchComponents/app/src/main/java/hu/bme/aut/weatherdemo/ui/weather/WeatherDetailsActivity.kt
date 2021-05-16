@@ -1,4 +1,4 @@
-package hu.bme.aut.weatherdemo.view.weather
+package hu.bme.aut.weatherdemo.ui.weather
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

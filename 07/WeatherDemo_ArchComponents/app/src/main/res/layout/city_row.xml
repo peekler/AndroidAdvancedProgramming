@@ -8,7 +8,7 @@
             type="hu.bme.aut.weatherdemo.model.db.City" />
         <variable
             name="adapter"
-            type="hu.bme.aut.weatherdemo.view.cities.adapter.CityAdapter" />
+            type="hu.bme.aut.weatherdemo.ui.cities.adapter.CityAdapter" />
     </data>
 
     <androidx.cardview.widget.CardView

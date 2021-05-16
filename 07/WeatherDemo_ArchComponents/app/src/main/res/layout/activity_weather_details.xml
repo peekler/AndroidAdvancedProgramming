@@ -7,7 +7,7 @@
     android:background="@color/colorAccent"
     android:orientation="vertical"
     android:padding="25dp"
-    tools:context=".view.weather.WeatherDetailsActivity">
+    tools:context=".ui.weather.WeatherDetailsActivity">
 
     <TextView
         android:id="@+id/tvCity"
