@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">WearDemo</string>
+
+    <string-array name="reply_choices">
+        <item>Home</item>
+        <item>Remote</item>
+        <item>Cancel</item>
+    </string-array>
+</resources>
