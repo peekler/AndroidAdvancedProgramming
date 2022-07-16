@@ -28,7 +28,8 @@ class FragmentMain : Fragment() {
         binding.btnGo.setOnClickListener {
 
             binding.root.findNavController().navigate(
-                FragmentMainDirections.actionFragmentMainToFragmentDetail(Person(
+                FragmentMainDirections.actionFragmentMainToFragmentDetail(
+                    Person(
                     binding.etName.text.toString(),
                     binding.etAddress.text.toString()
                 ))

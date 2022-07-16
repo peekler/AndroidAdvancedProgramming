@@ -147,6 +147,9 @@ class MainActivity : AppCompatActivity(), MainLocationManager.OnNewLocationAvail
     override fun onNewLocation(location: Location) {
         binding.tvLocation.text = getLocationText(location)
 
+
+        //location.
+
         if (previousLocation != null && location.accuracy < 20) {
             if (previousLocation!!.time < location.time) {
                 distance += previousLocation!!.distanceTo(location)

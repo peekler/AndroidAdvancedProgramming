@@ -238,7 +238,8 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, MainLocationManage
             polyLine?.remove()
         }
         val polyLine = mMap.addPolyline(myRoute)
-        polyLine?.color = Color.GREEN
+        polyLine?.color = Color.argb(100,0,255,0)
+
 
 
         val cameraPosition = CameraPosition.Builder()

@@ -32,6 +32,7 @@ class ForumActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         setSupportActionBar(binding.toolbar)
+
         binding.toolbarLayout.title = title
 
         binding.fab.setOnClickListener { view ->

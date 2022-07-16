@@ -26,6 +26,7 @@ class SensorLiveData(private val context: Context) : LiveData<SensorEvent>(),
             acceleroSensor,
             SensorManager.SENSOR_DELAY_NORMAL
         )
+
     }
 
     override fun onInactive() {

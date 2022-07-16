@@ -35,6 +35,7 @@ class MainActivity : AppCompatActivity(), MediaPlayer.OnPreparedListener {
         binding.seekBarVolume.max = 100
         binding.seekBarVolume.progress = 100
 
+
         binding.seekBarVolume.setOnSeekBarChangeListener(object: SeekBar.OnSeekBarChangeListener
         {
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {

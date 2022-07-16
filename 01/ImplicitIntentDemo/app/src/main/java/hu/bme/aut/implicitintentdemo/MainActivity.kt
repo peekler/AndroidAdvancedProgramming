@@ -88,10 +88,10 @@ class MainActivity : AppCompatActivity() {
     fun intentSend(v: View) {
         val intentSend = Intent(Intent.ACTION_SEND)
         intentSend.type = "text/plain"
-        intentSend.`package` = "com.facebook.katana"
+        //intentSend.`package` = "com.facebook.katana"
         intentSend.putExtra(Intent.EXTRA_TEXT, "Jee  Tanfolyam!")
         startActivity(intentSend)
-        //startActivity(Intent.createChooser(intentSend, "Select share app"));
+        startActivity(Intent.createChooser(intentSend, "Select share app"));
     }
 
     fun intentWaze(v: View) {
